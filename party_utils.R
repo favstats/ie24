@@ -396,7 +396,7 @@ election_dat7 <- readRDS("../data/election_dat7.rds")  %>%
   mutate(internal_id = page_id) %>% 
   filter(!(party %in% c("And", "Reg", "Oth")))
 
-currency_symbol <- "$"
+currency_symbol <- "€"
 
 color_dat <- election_dat30 %>% 
   distinct(party, entities.color) %>% 
