@@ -601,13 +601,13 @@ da30 <- mark_list[[2]]
 # da7 %>%  filter(page_id == "153080620724")
 
 
-saveRDS(da90, "data/election_dat90.rds")
+# saveRDS(da90, "data/election_dat90.rds")
 saveRDS(da30, "data/election_dat30.rds")
-# saveRDS(da7, "data/election_dat7.rds")
+saveRDS(da7, "data/election_dat7.rds")
 
-saveRDS(da90, paste0("historic/", new_ds, "/90.rds"))
+# saveRDS(da90, paste0("historic/", new_ds, "/90.rds"))
 saveRDS(da30, paste0("historic/", new_ds, "/30.rds"))
-# saveRDS(da7, paste0("historic/", new_ds, "/7.rds"))
+saveRDS(da7, paste0("historic/", new_ds, "/7.rds"))
 
 # list(da7, da30, da90) %>%
 #   walk(combine_em)
