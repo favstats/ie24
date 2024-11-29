@@ -163,7 +163,7 @@ generate_plots <- function(data, exclusion = F) {
     group_by(party) %>%
     arrange(desc(perc)) %>%
     distinct(value, .keep_all = T) %>%
-    slice(1:20)
+    slice(1:10)
 
   plots <- gg %>%
     mutate(spend_perlab = scales::comma(round(total_spend))) %>%
@@ -510,7 +510,7 @@ contested_dat <<- interest_targeting %>%
 justkeeptop20 <- contested_dat %>%
   arrange(desc(total_spenderino)) %>%
   distinct(value, total_spenderino) %>%
-  slice(1:20)
+  slice(1:10)
 
 contested_dat <- contested_dat %>%
   filter(value %in% justkeeptop20$value)

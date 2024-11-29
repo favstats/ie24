@@ -46,6 +46,8 @@ total_spend_id <- election_dat30 %>%
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>%
   ungroup()
 
+# election_dat30 %>% glimpse()
+# color_dat
 
 # election_dat30 %>% count(party)
 

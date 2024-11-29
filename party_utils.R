@@ -388,17 +388,20 @@ election_dat30 <- readRDS("../data/election_dat30.rds")  %>%
   filter(is.na(no_data)) %>% 
   drop_na(party) %>% 
   mutate(internal_id = page_id) %>% 
-  filter(!(party %in% c("And", "Reg", "Oth")))
+  filter(!(party %in% c("And", "Reg", "Oth", "Gov"))) %>% 
+  mutate(party = entities.name)
 election_dat7 <- readRDS("../data/election_dat7.rds")  %>% 
   as_tibble() %>% 
   filter(is.na(no_data))  %>% 
   drop_na(party) %>% 
   mutate(internal_id = page_id) %>% 
-  filter(!(party %in% c("And", "Reg", "Oth")))
+  filter(!(party %in% c("And", "Reg", "Oth", "Gov"))) %>% 
+  mutate(party = entities.name)
 
 currency_symbol <- "€"
 
 color_dat <- election_dat30 %>% 
+  mutate(party = entities.name) %>% 
   distinct(party, entities.color) %>% 
   rename(colors = entities.color)
 
@@ -427,8 +430,11 @@ write_lines(last7days_string, "last7days_string.txt")
 write_lines(last30days_string, "last30days_string.txt")
 
 
+# election_dat30 %>% count(party)
+#   arrange(left_right) %>% View()
+
 # most_left_party <- color_dat$party[1]
-most_left_party <- "KPÖ"
+most_left_party <- "The Green Party"
 # # Print the Dutch date range strings
 # print(last7days_string)
 # print(last30days_string)
